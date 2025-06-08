@@ -12,12 +12,13 @@ class Program
 
     static void Main(string[] args)
     {
-        string inputPath = "content_eng.txt";
-        string outputPath = "output.json";
+        string dataFolder = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "data-files"));
+        string inputPath = Path.Combine(dataFolder, "content_eng.txt");
+        string outputPath = Path.Combine(dataFolder, "output.json");
 
         if (!File.Exists(inputPath))
         {
-            Console.WriteLine("Файл не найден.");
+            Console.WriteLine("Файл не найден: " + inputPath);
             return;
         }
 
@@ -26,7 +27,6 @@ class Program
         var sectionStack = new Stack<(string prefix, Section section)>();
 
         Regex sectionRegex = new Regex(@"^(\d+(\.\d+)*)\s+(.*)");
-
         Section? lastSection = null;
 
         foreach (var line in lines)
@@ -68,7 +68,8 @@ class Program
         var options = new JsonSerializerOptions { WriteIndented = true };
         File.WriteAllText(outputPath, JsonSerializer.Serialize(jsonData, options));
 
-        Console.WriteLine("JSON сохранён в /bin/Debug/net9.0/output.json");
+        Console.WriteLine("Готово! JSON сохранён в:");
+        Console.WriteLine(outputPath);
     }
 
     static object ConvertToPlainObject(Dictionary<string, Section> sections)

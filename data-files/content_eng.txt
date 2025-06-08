@@ -1,0 +1,170 @@
+1 Scope
+Part 1.
+2 Reference 
+documents
+3 Terms, definitions, and abbreviations
+purposes.
+3.1 OPC UA terms
+3.1.1 AddressSpace
+collection.
+3.1.2 Alarm
+condition.
+3.1.3 Attribute 
+primitive.
+3.1.4 Certificate
+capabilities.
+3.1.5 Client
+software.
+3.1.6 Condition
+extension.
+3.1.7 Communication Stack
+layered.
+3.1.8 Complex Data
+primitive data type.
+3.1.9 Discovery
+The process by which OPC UA Client obtain information about OPC UA Servers, including endpoint and security information.
+3.1.10 Event
+A generic term used to describe an occurrence of some significance within a system or system component. 
+3.1.11 EventNotifier
+A special Attribute of a Node that signifies that a Client may subscribe to that particular Node to receive Notifications of Event occurrences.
+3.1.12 Information Model
+An organizational framework that defines, characterizes and relates information resources of a given system or set of systems.  
+3.1.13 Message
+The data unit conveyed between Client and Server that represents a specific Service request or response. 
+3.1.14 Method
+A callable software function. 
+3.1.15 MonitoredItem
+A Client-defined entity in the Server used to monitor Attributes or EventNotifiers for new values or Event occurrences and generate Notifications for them. 
+3.1.16 Node
+The fundamental component of an AddressSpace. 
+3.1.17 NodeClass
+The class of a Node in an AddressSpace. NodeClasses define the metadata for the components of the OPC UA Object Model.
+3.1.18 Notification
+The generic term for data that announces the detection of an Event or of a changed Attribute value..
+3.1.19 NotificationMessage
+A Message published from a Subscription that contains one or more Notifications. 
+3.1.20 Object
+A Node that represents a physical or abstract element of a system. 
+3.1.21 Object Instance
+A synonym for Object. Not all Objects are defined by ObjectTypes.
+3.1.22 ObjectType 
+A Node that represents the type definition for an Object.
+3.1.23 Profile
+A specific set of capabilities, defined in Part 7:, to which a Server may claim conformance.. 
+3.1.24 Program
+An executable Object that, when invoked, immediately returns a response to indicate that execution has started, and then returns intermediate and final results through Subscriptions identified by the Client during invocation.  
+3.1.25 Reference
+An explicit relationship (a named pointer) from one Node to another.  
+3.1.26 ReferenceType
+A Node that represents the type definition of a Reference. 
+3.1.27 RootNode
+The beginning or top Node of a hierarchy. The RootNode of the OPC UA AddressSpace is defined in Part 5:. 
+3.1.28 Server
+A software application that implements and exposes the Services specified in this set of specifications.
+3.1.29 Service
+A Client-callable operation in an OPC UA Server. Services are defined in Part 4:. A Service is similar to a method call in a programming language or an operation in a Web services WSDL contract.
+3.1.30 Service Set
+A group of related Services.
+3.1.31 Session
+A logical long-running connection between a Client and a Server. A Session maintains state information between Service calls from the Client to the Server.
+3.1.32 Subscription 
+A Client-defined endpoint in the Server, used to return Notifications to the Client.
+3.1.33 Variable
+A Variable is a Node that contains a value. 
+3.1.34 View
+A specific subset of the AddressSpace that is of interest to the Client.
+3.2 Abbreviations and symbols
+Application Programming Interface
+4 Structure of the OPC UA series
+4.1 Specification Organization
+This specification is organized as a multi-part specification, as illustrated in Figure 1.
+4.2 Core Specification Parts 
+Part 1   Overview and Concepts
+4.3 Access Type Specification Parts 
+Part 8   Data Access
+5 Overview
+5.1 UA Scope
+OPC UA is applicable to manufacturing software in application areas such as Field Devices, Control Systems, Manufacturing Execution Systems and Enterprise Resource Planning Systems.
+5.2 Introduction
+OPC UA is a platform-independent standard through which various kinds of systems and devices can communicate by sending Messages between Clients and Servers over various types of networks.
+5.3 Design goals
+OPC UA provides a consistent, integrated AddressSpace and service model..
+5.4 Integrated models and services
+5.4.1 Security model
+5.4.1.1 General
+OPC UA security is concerned with the authentication of Clients and Servers, the authentication of users, the integrity and confidentiality of their communications, and the verifiability of claims of functionality.
+5.4.1.2 Discovery and Session establishment
+Application level security relies on a secure communication channel that is active for the duration of the application Session and ensures the integrity of all Messages that are exchanged. 
+5.4.1.3 Auditing
+OPC UA includes support for security audit trails with traceability between Client and Server audit logs.
+5.4.1.4 Transport security
+OPC UA security complements the security infrastructure provided by most web service capable platforms.
+5.4.2 Integrated AddressSpace model
+The set of Objects and related information that the OPC UA Server makes available to Clients is referred to as its AddressSpace. 
+5.4.3 Integrated object model
+The OPC UA Object Model provides a consistent, integrated set of NodeClasses for representing Objects in the AddressSpace. 
+5.4.4 Integrated services 
+The interface between OPC UA Clients and Servers is defined as a set of Services. 
+5.5 Sessions
+OPC UA requires a stateful model. The state information is maintained inside an application Session. 
+5.6 Redundancy
+The design of OPC UA ensures that vendors can create redundant Clients and redundant Servers in a consistent manner.
+6 Systems concepts 
+6.1 Overview
+The OPC UA systems architecture models OPC UA Clients and Servers as interacting partners. 
+6.2 OPC UA Clients 
+The OPC UA Client architecture models the Client endpoint of client/server interactions. 
+6.3 OPC UA Servers 
+The OPC UA Server architecture models the Server endpoint of client/server interactions.
+6.3.1 Real objects
+Real objects are physical or software objects that are accessible by the OPC UA Server application or that it maintains internally. 
+6.3.2 OPC UA Server application
+The OPC UA Server application is the code that implements the function of the Server. 
+6.3.3 OPC UA AddressSpace 
+6.3.3.1 AddressSpace Nodes
+The AddressSpace is modelled as a set of Nodes accessible by Clients using OPC UA Services (interfaces and methods). 
+6.3.3.2 AddressSpace organization
+Part 3: contains the details of the meta model  building blocks  used to create an AddressSpace out of interconnected Nodes in a consistent manner.
+6.3.3.3 AddressSpace Views 
+A View is a subset of the AddressSpace.
+6.3.3.4 Support for information models
+The OPC UA AddressSpace supports information models. 
+6.3.4 Publisher/subscriber entities 
+6.3.4.1 MonitoredItems
+MonitoredItems are entities in the Server created by the Client that monitor AddressSpace Nodes and their real-world counterparts. 
+6.3.4.2 Subscriptions
+A Subscription is an endpoint in the Server that publishes Notifications to Clients. 
+6.3.5 OPC UA Service Interface 
+6.3.5.1 General
+The Services defined for OPC UA are described in Clause 7, and specified in Part 4:. 
+6.3.5.2 Request/response Services 
+Request/response Services are Services invoked by the Client through the OPC UA Service Interface to perform a specific task on one or more Nodes in the AddressSpace and to return a response. 
+6.3.5.3 Publisher Services 
+Publisher Services are Services invoked through the OPC UA Service Interface for the purpose of periodically sending Notifications to Clients. 
+6.3.6 Server to Server interactions
+Server to Server interactions are interactions in which one Server acts as a Client of another Server. 
+7 Service Sets 
+7.1 General
+OPC UA Services are divided into Service Sets, each defining a logical grouping of Services used to access a particular aspect of the Server.
+7.2 Discovery Service Set
+This Service Set defines Services used to discover OPC UA Servers that are available in a system.
+7.3 SecureChannel Service Set
+This Service Set defines Services used to open a communication channel that ensures the confidentiality and integrity of all Messages exchanged with the Server.
+7.4 Session Service Set
+This Service Set defines Services used to establish an application-layer connection in the context of a Session on behalf of a specific user.
+7.5 NodeManagement Service Set
+The NodeManagement Service Set allows Clients to add, modify, and delete Nodes in the AddressSpace. These Services provide an interface for the configuration of Servers.  
+7.6 View Service Set
+Views are publicly defined, Server-created subsets of the AddressSpace. 
+7.7 Query Service Set
+The Query Service Set allows users to access the address space without browsing and without knowledge of the logical schema used for internal storage of the data.
+7.8 Attribute Service Set
+The Attribute Service Set is used to read and write Attribute values.
+7.9 Method Service Set
+Methods represent the function calls of Objects. 
+7.10 MonitoredItem Service Set
+The MonitoredItem Service Set is used by the Client to create and maintain MonitoredItems. MonitoredItems monitor Variables, Attributes and EventNotifiers. 
+7.11 Subscription Service Set
+The Subscription Service Set is used by the Client to create and maintain Subscriptions. 
+
+
